@@ -73,8 +73,8 @@ ca-landuse-semarang/
 | Land Cover 2021 | *University practicum data* | 2021 |
 | Building footprint | *Derived — proximity raster generated in QGIS* | 2019 |
 | Road network | *Derived — proximity raster generated in QGIS* | 2019 |
-| DEM | *DEMNAS BIG* | 2014 - 2018 | 
-| Slope | Derived from DEM using QGIS Slope tool | 2014 - 2018 |
+| DEM | *DEMNAS BIG* | 2018 | 
+| Slope | *Derived from DEM using QGIS Slope tool* | 2018 |
 
 > ⚠️ **Note:** Land cover raster layers were provided by the university assistant as part of practicum materials. The original data source is unconfirmed.
 
