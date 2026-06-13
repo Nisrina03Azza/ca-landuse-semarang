@@ -16,11 +16,11 @@ The model learns spatial transition patterns between two historical land cover p
 
 ### 💡 Beyond the Practicum Task
 
-The original practicum task only required **proximity to buildings** and **proximity to roads** as variable layers. During initial training, the model produced a poor result — Kappa of **0.495** with no sign of convergence in the learning curve — indicating the two variables alone were insufficient to explain land cover transitions in this study area.
+The original practicum task only required **proximity to buildings** and **proximity to roads** as variable layers. During initial training, the model produced a poor result, Kappa of **0.495** with no sign of convergence in the learning curve, which indicates the two variables alone were insufficient to explain land cover transitions in this study area.
 
-To address this, **DEM and slope layers were independently added** based on the reasoning that terrain characteristics are fundamental physical constraints on land use change, particularly in Kabupaten Semarang where the landscape ranges from lowland village flats in the north to hilly terrain in the south. This decision was made without guidance from the practicum task brief.
+To address this, **DEM and slope layers were independently added** based on the reasoning that terrain characteristics are fundamental physical constraints on land use change, particularly in Kabupaten Semarang, where the landscape ranges from lowland village flats in the north to hilly terrain in the south. This decision was made without guidance from the practicum task brief.
 
-After adding the terrain variables and retuning the model parameters, the Kappa improved to **0.816** — a jump of more than 0.32 — with a clean convergence pattern in the learning curve. This result demonstrates that variable selection has a greater impact on model quality than hyperparameter tuning alone.
+After adding the terrain variables and retuning the model parameters, the Kappa improved to **0.816**, a jump of more than 0.32,  with a clean convergence pattern in the learning curve. This result demonstrates that variable selection has a greater impact on model quality than hyperparameter tuning alone.
 
 ---
 
@@ -76,7 +76,7 @@ ca-landuse-semarang/
 | DEM | *DEMNAS BIG* | 2014-2018 | 
 | Slope | *Derived from DEM using QGIS Slope tool* | 2014-2018 |
 
-> ⚠️ **Note:** Land cover raster layers were provided by the university assistant as part of practicum materials. The original data source is unconfirmed.
+> ⚠️ **Note:** The university assistant provided land-cover raster layers as part of the practicum materials. The original data source is unconfirmed.
 
 ---
 
@@ -167,10 +167,10 @@ The practicum task specified two variable layers. Two additional terrain layers 
 
 | Variable | Role in Model | Rationale |
 |---|---|---|
-| Slope | Physical constraint | Steep terrain limits land conversion — critical for distinguishing convertible vs non-convertible vegetated areas in Kabupaten Semarang's hilly southern zone |
-| DEM | Terrain context | Elevation zones influence land use patterns — the contrast between northern lowlands and southern highlands is a defining spatial characteristic of this study area |
+| Slope | Physical constraint | Steep terrain limits land conversion, critical for distinguishing convertible vs non-convertible vegetated areas in Kabupaten Semarang's hilly southern zone |
+| DEM | Terrain context | Elevation zones influence land use patterns; the contrast between northern lowlands and southern highlands is a defining spatial characteristic of this study area |
 
-> **Why these were added:** Training with only road and building proximity produced a Kappa of 0.495 and an unstable learning curve with no convergence. The two proximity variables capture development pressure but provide no information about physical constraints — meaning the model could not explain why some accessible areas convert while others do not. Adding terrain variables resolved this by giving the ANN the physical context needed to discriminate between transition and non-transition pixels. Kappa improved from 0.495 to 0.816 after this change.
+> **Why these were added:** Training with only road and building proximity produced a Kappa of 0.495 and an unstable learning curve with no convergence. The two proximity variables capture development pressure but provide no information about physical constraints, which means the model could not explain why some accessible areas convert while others do not. Adding terrain variables resolved this by giving the ANN the physical context needed to discriminate between transition and non-transition pixels. Kappa improved from 0.495 to 0.816 after this change.
 
 ---
 
@@ -180,9 +180,9 @@ The practicum task specified two variable layers. Two additional terrain layers 
 
 | Land Cover Class | Area 2017 (Sq.Km) | Area 2019 (Sq.Km) | Change (Sq.Km) |
 |---|---|---|---|
-| Water | 16,54 | 13,25 | 3,29 |
-| Vegetation | 401,62 | 291,25 | 110,37 |
-| Land | 599,14 | 712,80 | 113,66 |
+| Water | 16.54 | 13.25 | 3.29 |
+| Vegetation | 401.62 | 291.25 | 110.37 |
+| Land | 599.14 | 712.80 | 113.66 |
 
 ![Gains and Loses 2017-2019](documentation/gains_loses_chart.png)
 
@@ -191,9 +191,9 @@ The practicum task specified two variable layers. Two additional terrain layers 
 | Metric | Value |
 |---|---|
 |Validation iterations | 5 |
-| Kappa (overall) | 0,648 |
-| Kappa (histogram) | 0,723 |
-| Kappa (location) | 0,896 |
+| Kappa (overall) | 0.648 |
+| Kappa (histogram) | 0.723 |
+| Kappa (location) | 0.896 |
 
 ![Validation Result](documentation/validation_rep.png)
 
@@ -221,18 +221,18 @@ The practicum task specified two variable layers. Two additional terrain layers 
 
 ## 📝 Key Findings
 
-- The dominant land cover transition between 2017 and 2019 in Kabupaten Semarang was **Vegetation → Land**, covering approximately **122,612700 Sq. Km**.
-- The CA simulation produced a predicted 2021 land cover with a Kappa of **0,648** when validated against the actual 2021 map, indicating **83,8** predictive accuracy.
+- The dominant land cover transition between 2017 and 2019 in Kabupaten Semarang was **Vegetation → Land**, covering approximately **122.612700 Sq. Km**.
+- The CA simulation produced a predicted 2021 land cover with a Kappa of **0.648** when validated against the actual 2021 map, indicating **83.8** predictive accuracy.
 
 ---
 
 ## ⚠️ Limitations & Honest Notes
 
-- Land cover source data could not be fully traced — the original provider is unconfirmed beyond university practicum materials
-- Only 3 land cover classes were used (water, vegetation, land) — finer classification would improve model specificity
+- Land cover source data could not be fully traced. The original provider is unconfirmed beyond university practicum materials
+- Only 3 land cover classes were used (water, vegetation, land). Finer classification would improve model specificity
 - The model does not incorporate policy constraints such as RTRW spatial planning zones
-- DEM and slope carry overlapping information as slope is derived directly from the DEM — their correlation was checked in MOLUSCE's Evaluating Correlation tab before inclusion. Despite partial redundancy, both were retained as each contributes a distinct spatial signal (absolute elevation vs local gradient)
-- The original practicum task only required road and building proximity variables — DEM and slope were added independently based on model diagnostics, not task specification. This is documented transparently above.
+- DEM and slope carry overlapping information, as slope is derived directly from the DEM. Their correlation was checked in MOLUSCE's Evaluating Correlation tab before inclusion. Despite partial redundancy, both were retained as each contributes a distinct spatial signal (absolute elevation vs local gradient)
+- The original practicum task only required road and building proximity variables. DEM and slope were added independently based on model diagnostics, not task specification. This is documented transparently above.
 
 ---
 
