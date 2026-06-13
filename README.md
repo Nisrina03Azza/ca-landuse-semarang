@@ -50,12 +50,16 @@ ca-landuse-semarang/
 │
 ├── README.md
 │
+├── documentation
+|      ├── validation_rep.png
+|      └── gains_loses_chart.png
+|
 └─── maps/
       ├── LULC_2017_map.png
       ├── LULC_2019_map.png
       ├── LULC_2021_actual_map.png
       ├── LULC_2021_predicted_map.png
-      └── transition_LULC_maps.png
+      └── transition_potential_maps.png
 ```
 
 ---
@@ -69,8 +73,8 @@ ca-landuse-semarang/
 | Land Cover 2021 | *University practicum data* | 2021 |
 | Building footprint | *Derived — proximity raster generated in QGIS* | 2019 |
 | Road network | *Derived — proximity raster generated in QGIS* | 2019 |
-| DEM | *DEMNAS BIG* | 2014-2018 | 
-| Slope | Derived from DEM using QGIS Slope tool | 2014-2018 |
+| DEM | *DEMNAS BIG* | 2014 - 2018 | 
+| Slope | Derived from DEM using QGIS Slope tool | 2014 - 2018 |
 
 > ⚠️ **Note:** Land cover raster layers were provided by the university assistant as part of practicum materials. The original data source is unconfirmed.
 
@@ -180,6 +184,7 @@ The practicum task specified two variable layers. Two additional terrain layers 
 | Vegetation | 401,62 | 291,25 | 110,37 |
 | Land | 599,14 | 712,80 | 113,66 |
 
+![Gains and Loses 2017-2019](documentation/gains_loses_chart.png)
 
 ### Validation Results (Predicted 2021 vs Actual 2021)
 
@@ -190,28 +195,27 @@ The practicum task specified two variable layers. Two additional terrain layers 
 | Kappa (histogram) | 0,723 |
 | Kappa (location) | 0,896 |
 
+![Validation Result](documentation/validation_rep.png)
 
 ---
 
 ## 🖼️ Maps
 
 ### Land Cover 2017
-![Map LULC 2017]()
+![Map LULC 2017](maps/LULC_2017.png)
 
 ### Land Cover 2019
-![Map LULC 2019]()
+![Map LULC 2019](maps/LULC_2019.png)
 
 ### Land Cover 2021
-![Map LULC 2021]()
+![Map LULC 2021](maps/LULC_2021_actual_map.png)
 
 ### Transition Potential Maps
-![Transition Potential Map]()
+![Transition Potential Map](maps/transition_potential_maps.png)
 
 ### Predicted Land Cover 2021
-![Predicted Map LULC 2021]()
+![Predicted Map LULC 2021](maps/LULC_2021_predicted_map.png)
 
-### Certainty Map
-![Map of Certainty]()
 
 ---
 
