@@ -51,29 +51,14 @@ ca-landuse-semarang/
 ├── README.md
 │
 ├── data/
-│   ├── land_cover/
-│   │   ├── LULC_2017.tif        # Base year land cover (input)
-│   │   ├── LULC_2019.tif        # Second year land cover (input)
-│   │   └── LULC_2021.tif        # Actual land cover (validation)
+│   ├── lulc.zip                # zipped file of base year, second year, and actual land cover (for input and validation)
 │   │
-│   └── variables/
-│       ├── proximity_building.tif    # Proximity to building raster
-│       ├── proximity_road.tif        # Proximity to road raster
-│       ├── dem.tif                   # Digital Elevation Model
-│       └── slope.tif                 # Slope derived from DEM
+│   └── variables.zip          # Proximity to building and road, DEM and slope raster as factor variables
 │
 ├── output/
-│   ├── transition_potential/
-│   │   ├── tp_vegetation_to_land.tif
-│   │   ├── tp_land_to_vegetation.tif
-│   │   ├── tp_water_to_land.tif
-│   │   └── tp_land_to_water.tif      # Add/remove based on actual transitions
+│   ├── transition_potential.zip
 │   │
-│   ├── simulation/
-│   │   └── predicted_LULC_2021.tif
-│   │
-│   └── validation/
-│       └── validation_result.png     # Screenshot or export from MOLUSCE
+│   └── simulation_validation.zip
 │
 ├── maps/
 │   ├── LULC_2017_map.png
